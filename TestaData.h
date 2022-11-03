@@ -83,7 +83,7 @@ void TestaData::menu(){
     cout << "A data 1 eh: " << cidade[0] << ", " << data1.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano <<  endl;
     data2.getData(dia,mes,ano);
     cout << "A data 2 eh: " << cidade[1] << ", " << data2.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano << endl;
-    cout << calculaDiasEntreDatas() << endl;
+    cout << "Se passaram " << calculaDiasEntreDatas() << " dias entre as datas." << endl;
 }
 
 #endif
