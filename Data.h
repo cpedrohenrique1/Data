@@ -35,30 +35,37 @@ Data::~Data(){
 // Valida a data
 bool Data::validaData(){
     if (ano < 0){
+        throw string("Ano invalido");
         return false;
     }
     if (mes < 1 || mes > 12){
+        throw string("Mes invalido");
         return false;
     }
     if (dia < 1 || dia > 31){
+        throw string("Dia invalido");
         return false;
     }
     if (mes == 4 || mes == 6 || mes == 9 || mes == 11){
         if (dia > 30){
+            throw string("Dia invalido");
             return false;
         }
     }
     if (mes == 2){
         if (dia > 29){
+            throw string("Dia invalido");
             return false;
         }
         if (ano % 4 == 0){
             if (dia > 29){
+                throw string("Dia invalido");
                 return false;
             }
         }
         if (ano % 4 != 0){
             if (dia > 28){
+                throw string("Dia invalido");
                 return false;
             }
         }

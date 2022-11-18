@@ -17,31 +17,32 @@ void TestaData::menu(){
     int flag;
     // ler a primeira data
     do{
-        do{
+        try{
             cout << "Insira a data 1 (dia, mes, ano):\n";
             cin >> *dia >> *mes >> *ano;
             data1.setData(dia,mes,ano);
-        }while (data1.validaData() == false);
-        // ler cidade 1
-        cout << "Insira a cidade 1: ";
-        cin.ignore();
-        getline(cin,cidade[0]);
-        // ler a segunda data
-        do{
+            // ler cidade 1
+            cout << "Insira a cidade 1: ";
+            cin.ignore();
+            getline(cin,cidade[0]);
+            // ler a segunda data
             cout << "Insira a data 2 (dia, mes, ano):\n";
             cin >> *dia >> *mes >> *ano;
             data2.setData(dia,mes,ano);
-        }while (data2.validaData() == false);
-        // ler cidade 2
-        cout << "Insira a cidade 2: ";
-        cin.ignore();
-        getline(cin,cidade[1]);
-        // imprimir resultados
-        data1.getData(dia,mes,ano);
-        cout << "A data 1 eh: " << cidade[0] << ", " << data1.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano <<  endl;
-        data2.getData(dia,mes,ano);
-        cout << "A data 2 eh: " << cidade[1] << ", " << data2.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano << endl;
-        cout << "Se passaram " << data1.calculaDiasEntreDatas(data2) << " dias entre as datas." << endl;
+            // ler cidade 2
+            cout << "Insira a cidade 2: ";
+            cin.ignore();
+            getline(cin,cidade[1]);
+            // imprimir resultados
+            data1.getData(dia,mes,ano);
+            cout << "A data 1 eh: " << cidade[0] << ", " << data1.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano <<  endl;
+            data2.getData(dia,mes,ano);
+            cout << "A data 2 eh: " << cidade[1] << ", " << data2.determinaDiaSemana() << " " << *dia << '/' << *mes << '/' << *ano << endl;
+            cout << "Se passaram " << data1.calculaDiasEntreDatas(data2) << " dias entre as datas." << endl;
+        }
+        catch (string erro){
+            cout << "Erro: " << erro << endl;
+        }
         // perguntar se o usuario quer continuar
         cout << "Insira 0 para encerrar\n";
         cin >> flag;
