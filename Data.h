@@ -12,6 +12,7 @@ class Data{
         bool setData(int*,int*,int*);
         void getData(int*,int*,int*);
         string determinaDiaSemana();
+        long long calculaDiasEntreDatas(Data);
 };
 
 // Construtor
@@ -114,5 +115,31 @@ string Data::determinaDiaSemana(){
     }
 }
 
+long long Data::calculaDiasEntreDatas(Data data2){
+    int dia2,mes2,ano2;
+    data2.getData(&dia2, &mes2, &ano2);
+    long long dias = 0;
+    
+    if (ano == ano2){
+        if (mes == mes2){
+            dias = dia2 - dia;
+        }
+        else{
+            dias = (mes2 - mes) * 30;
+            dias += dia2 - dia;
+        }
+    }
+    else{
+        dias = (ano2 - ano) * 365;
+        dias += (mes2 - mes) * 30;
+        dias += dia2 - dia;
+    }
+
+    if (dias < 0){
+        dias *= -1;
+    }
+
+    return dias;
+}
 
 #endif
